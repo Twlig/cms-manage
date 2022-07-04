@@ -13,26 +13,16 @@ export default function (props: any) {
     return (
         <Layout id="app">
             <Header />
-            <Layout>
-                <Sider>Sider</Sider>
-                <Content>
-                    <Outlet />
-                </Content>
-            </Layout>
+            <div className="container">
+                <Aside />
+                <div className="container_box">
+                    <Bread />
+                    <div className="container_content">
+                        <Outlet />
+                    </div>
+                </div>
+            </div>
             <footer>Copyright &copy; 2022 Author Twilg</footer>
         </Layout>
-
-        // <Layout id="app">
-        //     <div className="container">
-        //         <Aside />
-        //         <div className="container_box">
-        //             <Bread />
-        //             <div className="container_content">
-        //                 <Outlet />
-        //             </div>
-        //         </div>
-        //     </div>
-        //     <footer>Respect | Copyright &copy; 2022 Author Twilg</footer>
-        // </Layout>
     )
 }

@@ -4,5 +4,8 @@ export const RouteMap = {
     REGISTER: "/register",
     EDIT: "/edit",
     EDIT_ID: "/edit/:id",
-    NOT_FOUND: "*",
+    LISTLIST: "/listlist",
+    LISTTABLE: "/listtable",
+    MEANS: "/means",
+    NOT_FOUND: "/404",
 }

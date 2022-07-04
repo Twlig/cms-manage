@@ -6,7 +6,7 @@ body {
     width: 100vw;
     height: 100vh;
     font-size: 14px;
-    color: #fff;
+    text-align: center;
     font-family: "宋体";
     background: @bcolor;
 }
@@ -63,4 +63,21 @@ footer {
 #app {
     height: 100vh;
     background-color: #f0f2f5;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    .aside {
+        height: calc(100vh - 140px);
+    }
+    .container_box {
+        flex: 1;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        .container_content {
+            flex: 1;
+        }
+    }
 }
