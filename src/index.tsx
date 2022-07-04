@@ -1,6 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
-import "@/style/base.css"
+
+import "@/assets/style/base.less"
 
 import BaseRouter from "./router"
 

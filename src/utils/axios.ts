@@ -1,7 +1,7 @@
-import axios from "axios"
+import axios, { AxiosResponse } from "axios"
 
 const instance = axios.create({
-    baseURL: "http://localhost:8080",
+    baseURL: "/api",
     timeout: 5000,
 })
 
@@ -22,5 +22,17 @@ instance.interceptors.response.use(
         return Promise.reject(err)
     }
 )
+
+export type loginDataType = {
+    data: {
+        avatar: string
+        "cms-token": string
+        editable: string
+        player: string
+        username: string
+    }
+    errCode?: number
+    message?: string
+}
 
 export default instance
