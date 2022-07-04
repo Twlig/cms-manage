@@ -104,7 +104,19 @@
         }
     },
     "lint-staged": {
-        "*.{tsx | ts | js | css | less}": [
+        "*.tsx": [
+            "prettier --write"
+        ],
+        "*.ts": [
+            "prettier --write"
+        ],
+        "*.js": [
+            "prettier --write"
+        ],
+        "*.less": [
+            "prettier --write"
+        ],
+        "*.css": [
             "prettier --write"
         ]
     },
