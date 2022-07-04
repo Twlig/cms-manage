@@ -23,7 +23,6 @@ export default function (props: any) {
         </Layout>
 
         // <Layout id="app">
-        //     <Header />
         //     <div className="container">
         //         <Aside />
         //         <div className="container_box">

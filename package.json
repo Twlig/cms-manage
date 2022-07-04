@@ -98,8 +98,16 @@
         "prettier": "^2.7.1",
         "style-loader": "^3.3.1"
     },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
     "lint-staged": {
-        "*.{tsx, ts, js, css, less, md}": "prettier --write"
+        "src/**/*.{tsx, ts, js, css, less}": [
+            "prettier --write",
+            "git add"
+        ]
     },
     "jest": {
         "roots": [
