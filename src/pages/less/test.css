@@ -1,0 +1,11 @@
+footer {
+    line-height: 70px;
+     text-align: center;
+    color: #fff;
+      background-color: #001529;
+}
+
+   #app    {
+    height: 100vh;
+     background-color: #f0f2f5;
+}
