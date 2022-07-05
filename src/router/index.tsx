@@ -1,17 +1,17 @@
 import React from "react"
 import { useRoutes, BrowserRouter } from "react-router-dom"
 
-import routeConfig from "./config"
+import Routes from "./config"
 
-const Routes = () => {
-    const route = useRoutes(routeConfig)
-    return <>{route}</>
-}
+// const Routes = () => {
+//     if(routeConfig) {
+//         const route = useRoutes(routeConfig)
+//         return <>{route}</>
+//     } else {
+//         return null
+//     }
+// }
 
 export default () => {
-    return (
-        <BrowserRouter>
-            <Routes></Routes>
-        </BrowserRouter>
-    )
+    return <BrowserRouter>{Routes}</BrowserRouter>
 }

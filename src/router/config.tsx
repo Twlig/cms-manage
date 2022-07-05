@@ -7,13 +7,16 @@ import ListList from "@/pages/ListList"
 import ListTable from "@/pages/ListTable"
 import Means from "@/pages/Means"
 import NotFound from "@/pages/404"
+import { CheckLogin } from "./middleAuth"
 
 import { Navigate, RouteObject } from "react-router-dom"
+import { useMiddlewareRoutes, ReactRouterMiddleware, RoutesMiddlewareObject } from "react-router-middleware-plus"
 
-const routeConfig: RouteObject[] = [
+const routeConfig: RoutesMiddlewareObject[] = [
     {
         path: RouteMap.ROOT,
         element: <Home />,
+        middleware: [CheckLogin],
         children: [
             {
                 path: RouteMap.EDIT,
@@ -55,4 +58,5 @@ const routeConfig: RouteObject[] = [
     },
 ]
 
-export default routeConfig
+// export default useMiddlewareRoutes(routeConfig)   这种写法要在function组件中使用
+export default <ReactRouterMiddleware routes={routeConfig}></ReactRouterMiddleware>
