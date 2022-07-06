@@ -58,5 +58,6 @@ const routeConfig: RoutesMiddlewareObject[] = [
     },
 ]
 
-// export default useMiddlewareRoutes(routeConfig)   这种写法要在function组件中使用
+// export default routeConfig
+// export default useMiddlewareRoutes(routeConfig)   //这种写法要在function组件中使用
 export default <ReactRouterMiddleware routes={routeConfig}></ReactRouterMiddleware>

@@ -4,12 +4,8 @@ import { useRoutes, BrowserRouter } from "react-router-dom"
 import Routes from "./config"
 
 // const Routes = () => {
-//     if(routeConfig) {
-//         const route = useRoutes(routeConfig)
-//         return <>{route}</>
-//     } else {
-//         return null
-//     }
+//     const route = useRoutes(routeConfig)
+//     return <>{route}</>
 // }
 
 export default () => {

@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios"
+import { type } from "os"
 
 const instance = axios.create({
     baseURL: "/api",
@@ -31,6 +32,27 @@ export type loginDataType = {
         player: string
         username: string
     }
+    errCode?: number
+    message?: string
+}
+
+export interface articleType {
+    author: string
+    date: string
+    subTitle: string
+    id: number
+    title: string
+}
+
+export interface articlesDataType {
+    total: number
+    count: number
+    num: number
+    arr: articleType[]
+}
+
+export interface articlesAxiosType {
+    data: articlesDataType
     errCode?: number
     message?: string
 }
