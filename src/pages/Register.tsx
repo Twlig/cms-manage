@@ -9,7 +9,6 @@ import { loginDataType } from "@/utils/axios"
 const Register = () => {
     const navigate = useNavigate()
     const onFinish = (values: any) => {
-        console.log("Success:", values)
         axios.post("/register", { username: values.username, password: values.password }).then((res: loginDataType) => {
             if (res.errCode === 0) {
                 message.success(res.message)
@@ -37,7 +36,13 @@ const Register = () => {
                     onFinishFailed={onFinishFailed}
                     autoComplete="off"
                 >
-                    <Form.Item name="username" rules={[{ required: true, message: "请输入用户名" }]}>
+                    <Form.Item
+                        name="username"
+                        rules={[
+                            { required: true, message: "请输入用户名" },
+                            { pattern: new RegExp("^.{3,20}$", "g"), message: "用户名长度3-20" },
+                        ]}
+                    >
                         <Input
                             size="large"
                             prefix={<UserOutlined className="site-form-item-icon" />}
@@ -45,7 +50,19 @@ const Register = () => {
                         />
                     </Form.Item>
 
-                    <Form.Item name="password" rules={[{ required: true, message: "请输入密码" }]}>
+                    <Form.Item
+                        name="password"
+                        rules={[
+                            { required: true, message: "请输入密码" },
+                            {
+                                pattern: new RegExp(
+                                    "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[^0-9a-zA-Z]).{6,20}$",
+                                    "g"
+                                ),
+                                message: "密码长度6-20，必须包含数字，大、小写字母和特殊字符",
+                            },
+                        ]}
+                    >
                         <Input.Password
                             size="large"
                             prefix={<LockOutlined className="site-form-item-icon" />}
@@ -59,14 +76,14 @@ const Register = () => {
                         rules={[
                             {
                                 required: true,
-                                message: "Please confirm your password!",
+                                message: "请输入密码",
                             },
                             ({ getFieldValue }) => ({
                                 validator(_, value) {
                                     if (!value || getFieldValue("password") === value) {
                                         return Promise.resolve()
                                     }
-                                    return Promise.reject(new Error("The two passwords that you entered do not match!"))
+                                    return Promise.reject(new Error("密码不匹配"))
                                 },
                             }),
                         ]}

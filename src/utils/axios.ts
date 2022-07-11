@@ -8,6 +8,12 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
     req => {
+        const token = localStorage.getItem("cms-token")
+        if (token) {
+            req.headers = {
+                "cms-token": token,
+            }
+        }
         return req
     },
     err => {
@@ -24,37 +30,43 @@ instance.interceptors.response.use(
     }
 )
 
-export type loginDataType = {
-    data: {
-        avatar: string
-        "cms-token": string
-        editable: string
-        player: string
-        username: string
-    }
+export type baseType<T> = {
+    data: T
     errCode?: number
     message?: string
 }
 
-export interface articleType {
-    author: string
-    date: string
-    subTitle: string
-    id: number
-    title: string
-}
+export type loginDataType = baseType<{
+    avatar: string
+    "cms-token": string
+    editable: string
+    player: string
+    username: string
+}>
 
-export interface articlesDataType {
+export type editType = baseType<{
+    subTitle: string
+    title: string
+    content: any
+}>
+
+export type articlesAxiosType = baseType<{
     total: number
     count: number
     num: number
-    arr: articleType[]
-}
+    arr: {
+        author: string
+        date: string
+        subTitle: string
+        id: number
+        title: string
+    }[]
+}>
 
-export interface articlesAxiosType {
-    data: articlesDataType
-    errCode?: number
-    message?: string
-}
+export type userType = baseType<{
+    avatar: string
+    password: string
+    username: string
+}>
 
 export default instance

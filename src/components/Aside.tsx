@@ -20,14 +20,9 @@ const Aside = () => {
 
     const items = [
         {
-            key: "listlist",
-            icon: <ReadOutlined />,
-            label: `查看文章列表List`,
-        },
-        {
             key: "listtable",
             icon: <ReadOutlined />,
-            label: "查看文章列表Table",
+            label: "查看文章列表",
         },
         {
             key: "edit",

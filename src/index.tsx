@@ -1,13 +1,16 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
+import { Provider } from "react-redux"
 
+import store from "./store"
 import "@/assets/style/base.less"
-
 import BaseRouter from "./router"
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 root.render(
-    <BaseRouter />
+    <Provider store={store}>
+        <BaseRouter />
+    </Provider>
     // <React.StrictMode>
     //     <BaseRouter />
     // </React.StrictMode>

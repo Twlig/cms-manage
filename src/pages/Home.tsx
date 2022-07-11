@@ -1,6 +1,7 @@
-import { PropsWithChildren } from "react"
+import { PropsWithChildren, useState } from "react"
 import { Outlet } from "react-router-dom"
 import { Layout } from "antd"
+
 import Aside from "@/components/Aside"
 import Header from "@/components/Header"
 import Bread from "@/components/Bread"
@@ -9,7 +10,7 @@ import "./less/home.less"
 
 const { Sider, Content } = Layout
 
-export default function (props: any) {
+const Home = (props: any) => {
     return (
         <Layout id="app">
             <Header />
@@ -26,3 +27,5 @@ export default function (props: any) {
         </Layout>
     )
 }
+
+export default Home

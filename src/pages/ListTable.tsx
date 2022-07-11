@@ -2,7 +2,7 @@ import React, { ComponentType, ReactComponentElement, ReactNode, useEffect, useS
 import { message, Table, TableColumnsType, Space, Button, TablePaginationConfig } from "antd"
 import moment from "moment"
 
-import axios, { articlesAxiosType, articleType, articlesDataType } from "@/utils/axios"
+import axios, { articlesAxiosType, baseType } from "@/utils/axios"
 import "./less/listtable.less"
 import { JSXElement, JSX_TYPES } from "@babel/types"
 import { useNavigate } from "react-router-dom"
@@ -60,7 +60,16 @@ const ListTable = () => {
     const pageChange = (pagination: TablePaginationConfig) => {
         getArticlesList(pagination.current!, pagination.pageSize!)
     }
-    const deleteArticle = (id: number) => {}
+    const deleteArticle = (id: number) => {
+        axios
+            .post("/article/remove", {
+                id,
+            })
+            .then((res: baseType<{}>) => {
+                res.errCode !== 0 ? message.error(res.message) : message.success(res.message)
+                getArticlesList(1, pagination.pageSize)
+            })
+    }
 
     const columns: TableColumnsType<dataSourceType> = [
         {
